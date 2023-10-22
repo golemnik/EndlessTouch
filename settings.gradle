@@ -1,0 +1,3 @@
+rootProject.name = "EndlessTouch"
+include 'Core'
+include 'WebModule'

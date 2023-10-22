@@ -1,0 +1,26 @@
+group 'com.golem.tech'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.9.2'
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+subprojects {
+    apply plugin: "java"
+    compileJava {
+        doFirst {
+            options.compilerArgs += [
+                    '--module-path', classpath.asPath
+            ]
+            classpath = files()
+        }
+    }
+}

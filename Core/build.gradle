@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.golem.tech'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+//compileJava {
+//    doFirst {
+//        options.compilerArgs += [
+//                '--module-path', classpath.asPath
+//        ]
+//        classpath = files()
+//    }
+//}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    compileOnly('jakarta.platform:jakarta.jakartaee-api:9.1.0')
+//    implementation('jakarta.platform:jakarta.jakartaee-api:9.1.0')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+//    destinationDirectory = file('../build/libs')
+}
