@@ -1,3 +1,6 @@
 rootProject.name = "EndlessTouch"
 include 'Core'
 include 'WebModule'
+include 'GraphTech'
+include 'AreaTech'
+

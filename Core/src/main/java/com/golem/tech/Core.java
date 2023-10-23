@@ -2,6 +2,10 @@ package com.golem.tech;
 
 import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+
+import java.io.IOException;
 
 @ManagedBean
 @ApplicationScoped
@@ -19,4 +23,10 @@ public class Core {
                 .closeTag("html")
                 .build();
     }
+
+    public void execute (ForwardContainer container) throws ServletException, IOException {
+        RequestDispatcher dispatcher = container.servletContext().getRequestDispatcher(AreaCheckServlet.path);
+        dispatcher.forward(container.requestContainer().req(), container.requestContainer().resp());
+    }
+
 }
