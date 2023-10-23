@@ -1,7 +1,7 @@
 package com.golem.tech.schema.abstractions.mGeneralAbstraction;
 
-import com.tech.factory.schema.holograms.mGeneralHolograms.HoloSubCore;
-import com.tech.factory.schema.holograms.mTechHologram.HoloTech;
+import com.golem.tech.schema.holograms.mGeneralHolograms.HoloSubCore;
+import com.golem.tech.schema.holograms.mTechHologram.HoloTech;
 
 public class AbstractSubCore implements HoloSubCore {
     private final HoloTech tech;

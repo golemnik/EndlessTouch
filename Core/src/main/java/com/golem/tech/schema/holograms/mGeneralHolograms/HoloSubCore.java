@@ -1,6 +1,7 @@
 package com.golem.tech.schema.holograms.mGeneralHolograms;
 
-import com.tech.factory.schema.holograms.mTechHologram.HoloTech;
+
+import com.golem.tech.schema.holograms.mTechHologram.HoloTech;
 
 import java.util.List;
 import java.util.ServiceLoader;

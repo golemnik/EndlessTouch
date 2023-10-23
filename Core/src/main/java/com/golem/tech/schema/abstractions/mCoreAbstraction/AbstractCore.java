@@ -1,10 +1,10 @@
 package com.golem.tech.schema.abstractions.mCoreAbstraction;
 
-import com.tech.factory.schema.holograms.mCoreHologram.HoloCore;
-import com.tech.factory.schema.holograms.mGeneralHolograms.HoloSubCore;
-import com.tech.factory.schema.holograms.mTransferHologram.HoloPort;
-import com.tech.factory.schema.holograms.mTransferHologram.HoloWay;
-import com.tech.factory.schema.holograms.mTransferHologram.Wayable;
+import com.golem.tech.schema.holograms.mCoreHologram.HoloCore;
+import com.golem.tech.schema.holograms.mGeneralHolograms.HoloSubCore;
+import com.golem.tech.schema.holograms.mTransferHologram.HoloPort;
+import com.golem.tech.schema.holograms.mTransferHologram.HoloWay;
+import com.golem.tech.schema.holograms.mTransferHologram.Wayable;
 
 import java.util.HashMap;
 import java.util.Map;

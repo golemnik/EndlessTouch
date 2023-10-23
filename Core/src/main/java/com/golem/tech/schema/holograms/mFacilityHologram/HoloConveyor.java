@@ -1,6 +1,6 @@
 package com.golem.tech.schema.holograms.mFacilityHologram;
 
-import com.tech.factory.schema.holograms.mTransferHologram.HoloContainer;
+import com.golem.tech.schema.holograms.mTransferHologram.HoloContainer;
 
 import java.util.List;
 

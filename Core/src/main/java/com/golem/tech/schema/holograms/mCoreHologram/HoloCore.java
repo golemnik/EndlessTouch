@@ -1,8 +1,8 @@
 package com.golem.tech.schema.holograms.mCoreHologram;
 
-import com.tech.factory.schema.holograms.mGeneralHolograms.HoloSubCore;
-import com.tech.factory.schema.holograms.mTransferHologram.HoloPort;
-import com.tech.factory.schema.holograms.mTransferHologram.Wayable;
+import com.golem.tech.schema.holograms.mGeneralHolograms.HoloSubCore;
+import com.golem.tech.schema.holograms.mTransferHologram.HoloPort;
+import com.golem.tech.schema.holograms.mTransferHologram.Wayable;
 
 import java.util.Map;
 
