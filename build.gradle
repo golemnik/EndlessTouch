@@ -23,4 +23,7 @@ subprojects {
             classpath = files()
         }
     }
+    jar {
+        //destinationDirectory = file("../A-modules")
+    }
 }

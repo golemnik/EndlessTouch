@@ -1,4 +1,4 @@
-package com.golem.tech;
+package com.golem.tech.signatures;
 
 public class Page {
     private String page = "";

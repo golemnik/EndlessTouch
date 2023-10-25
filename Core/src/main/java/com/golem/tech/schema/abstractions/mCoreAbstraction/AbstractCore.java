@@ -1,5 +1,6 @@
 package com.golem.tech.schema.abstractions.mCoreAbstraction;
 
+import com.golem.tech.core.coreFunctions.TechLayer;
 import com.golem.tech.schema.holograms.mCoreHologram.HoloCore;
 import com.golem.tech.schema.holograms.mGeneralHolograms.HoloSubCore;
 import com.golem.tech.schema.holograms.mTransferHologram.HoloPort;
@@ -13,18 +14,19 @@ public class AbstractCore implements HoloCore {
     private ModuleLayer layer;
     private HoloPort port;
     private final Map<String, HoloSubCore> moduleCoreList = new HashMap<>();
-    public AbstractCore (ModuleLayer layer) {
-        this.layer = layer;
+    public AbstractCore () {
         init();
     }
     @Override
     public void init() {
-        port = HoloPort.getPort(layer);
-        HoloSubCore.getSubCores(layer).forEach(x -> moduleCoreList.put(x.getName(), x));
+        TechLayer.loadLayer(".");
+        this.layer = TechLayer.getLayer();
+//        port = HoloPort.getPort(layer);
+//        HoloSubCore.getSubCores(layer).forEach(x -> moduleCoreList.put(x.getName(), x));
     }
 
     @Override
-    public Map<String, HoloSubCore> moduleCoreList() {
+    public Map<String, HoloSubCore> moduleSubCores() {
         return moduleCoreList;
     }
 
