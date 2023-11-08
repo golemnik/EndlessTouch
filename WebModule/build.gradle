@@ -30,10 +30,12 @@ tasks.withType(JavaCompile) {
 dependencies {
   compileOnly('jakarta.platform:jakarta.jakartaee-api:9.1.0')
   compileOnly('jakarta.mvc:jakarta.mvc-api:2.0.0')
-  implementation project(':Core')
-  implementation project(':ServletTransfer')
 
-  implementation project(':AreaTech')
+  compileOnly project(':ModuleBunch')
+
+  compileOnly project(':Core')
+  compileOnly project(':ServletTransfer')
+  compileOnly project(':AreaTech')
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -41,4 +43,8 @@ dependencies {
 
 test {
   useJUnitPlatform()
+}
+
+war {
+
 }

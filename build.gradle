@@ -1,3 +1,7 @@
+plugins {
+    id 'java'
+    id 'ear'
+}
 group 'com.golem.tech'
 version '1.0-SNAPSHOT'
 
@@ -9,10 +13,23 @@ ext {
     junitVersion = '5.9.2'
 }
 
+dependencies {
+//    deploy project('Core')
+//    deploy project('AreaTech')
+    deploy project(path: ':WebModule', configuration:'archives')
+    deploy project(path: ':WebNastModule', configuration:'archives')
+//    deploy project('ServletTransfer')
+//    deploy project('ModuleBunch')
+}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
+java {
+    modularity.inferModulePath = true
+}
+
 subprojects {
     apply plugin: "java"
     compileJava {
@@ -23,7 +40,20 @@ subprojects {
             classpath = files()
         }
     }
-    jar {
-        //destinationDirectory = file("../A-modules")
+}
+
+ear {
+    appDirectory = file('src/main/app')  // use application metadata found in this folder
+    libDirName 'APP-INF/lib' // put dependent libraries into APP-INF/lib inside the generated EAR
+    deploymentDescriptor {  // custom entries for application.xml:
+        applicationName = "customear"
+        initializeInOrder = true
+        displayName = "EndlessTouch"  // defaults to project.name
+        description = "Experimental EAR archiev"
+//      libraryDirectory = "APP-INF/lib"  // not needed, above libDirName setting does this
+//      module("my.jar", "java")  // won't deploy as my.jar isn't deploy dependency
+//      webModule("my.war", "/")  // won't deploy as my.war isn't deploy dependency
+        securityRole "admin"
+        securityRole "superadmin"
     }
 }

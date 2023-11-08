@@ -2,7 +2,7 @@ package com.golem.tech.schema.abstractions.mTransferAbsraction;
 
 import com.golem.tech.schema.holograms.mTransferHologram.HoloContainer;
 import com.golem.tech.schema.holograms.mTransferHologram.HoloSignature;
-import com.golem.tech.schema.holograms.mTransferHologram.signatureMech.SignatureStatus;
+import com.golem.tech.schema.holograms.mTransferHologram.closed.SignatureStatus;
 
 public abstract class AbstractContainer implements HoloContainer {
     public final HoloSignature signature;

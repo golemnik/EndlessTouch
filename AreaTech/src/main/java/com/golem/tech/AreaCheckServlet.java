@@ -1,6 +1,6 @@
 package com.golem.tech;
 
-import com.golem.tech.signatures.Page;
+import com.golem.tech.pages.Page;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

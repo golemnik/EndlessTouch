@@ -2,9 +2,9 @@ package com.golem.tech;
 
 import com.golem.tech.containers.ForwardContainer;
 import com.golem.tech.schema.abstractions.mTechAbstraction.AbstractTech;
+import com.golem.tech.schema.basicRealesations.mTransferBasics.CorruptedContainer;
 import com.golem.tech.schema.basicRealesations.mTransferBasics.exceptions.ContainerTransformException;
 import com.golem.tech.schema.holograms.mTransferHologram.HoloContainer;
-import com.golem.tech.schema.holograms.mTransferHologram.HoloWay;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 
@@ -17,13 +17,14 @@ public class AreaServletTech extends AbstractTech {
     }
 
     @Override
-    public void execute(HoloContainer container) {
+    public HoloContainer execute(HoloContainer container) {
         try {
             execute(transform(container));
         }
         catch (Exception e) {
             System.out.println(">>> " + e.getMessage());
         }
+        return new CorruptedContainer();
     }
 
     @Override

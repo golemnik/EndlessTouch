@@ -1,6 +1,7 @@
 import com.golem.tech.AreaServletTech;
-import com.golem.tech.AreaTechSubcore;
-import com.golem.tech.schema.holograms.mGeneralHolograms.HoloSubCore;
+import com.golem.tech.areaTechCore.AreaTechSubcore;
+import com.golem.tech.schema.holograms.mCoreHologram.HoloTechSubcore;
+import com.golem.tech.schema.holograms.mCoreHologram.closed.HoloSubcore;
 import com.golem.tech.schema.holograms.mTechHologram.HoloTech;
 
 module AreaTech {
@@ -8,9 +9,11 @@ module AreaTech {
     requires ServletTransfer;
     requires jakarta.jakartaee.api;
 
-    uses HoloSubCore;
+    exports com.golem.tech.areaTechCore;
+
+    uses HoloSubcore;
     uses HoloTech;
 
-    provides HoloSubCore with AreaTechSubcore;
+    provides HoloTechSubcore with AreaTechSubcore;
     provides HoloTech with AreaServletTech;
 }

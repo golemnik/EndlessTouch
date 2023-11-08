@@ -5,4 +5,5 @@ include 'GraphTech'
 include 'AreaTech'
 include 'ServletTransfer'
 include 'GeneralFacility'
-
+include 'ModuleBunch'
+include 'WebNastModule'

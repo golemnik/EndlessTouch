@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Deprecated
 public class TechLayer {
     private static ModuleLayer layer;
     private static String path;

@@ -1,0 +1,160 @@
+body{
+    background: #bedcf5;
+
+}
+
+.epic{
+    font-size: x-small;
+    font-style: normal;
+    font-family: Georgia, "Times New Roman", fantasy;
+    color: #ffffff;
+
+}
+.paragraph{
+    background-color: rgb(135, 109, 150);
+}
+
+table{
+    border: 1px solid #560091;
+    box-shadow: 0 0 25px rgb(150, 102, 147);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(135, 109, 150);
+    color: #ffffff;
+}
+
+#canvas{
+    position: fixed;
+    background-color: rgb(135, 109, 150);
+    border: 1px solid #560091;
+    box-shadow: 0 0 25px rgb(131, 92, 147);
+    border-radius: 10px;
+    display:flex;
+    margin-left: 900px;
+    margin-top: -135px;
+
+
+}
+
+.petal1 {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    top: 600px;
+    left: 563px;
+    background: #844c9f;
+    border-radius: 100% 0;
+    box-shadow: -6em 6em #844c9f;
+}
+.petal1:before,
+.petal1:after {
+    content: "";
+    display: block;
+    width: 5em;
+    height: 5em
+}
+.petal1:before {
+    position: absolute;
+    left: -12em;
+    top: -2em;
+    margin: 2em 6em;
+    background: #844c9f;
+    border-radius: 0 100%;
+    box-shadow: 6em 6em #844c9f;
+    transform: rotate(-30deg);
+    transform-origin: 5.5em 5.5em;
+}
+
+.petal1:after {
+    position: absolute;
+    left: -12em;
+    top: -2em;
+    margin: 2em 6em;
+    background: #844c9f;
+    border-radius: 0 100%;
+    box-shadow: 6em 6em #844c9f;
+    transform: rotate(30deg);
+    transform-origin: 5.5em 5.5em
+}
+
+.petal2 {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    top: 677px;
+    left: 763px;
+    background: #410079;
+    border-radius: 100% 0;
+    box-shadow: -6em 6em #560091;
+}
+.petal2:before,
+.petal2:after {
+    content: "";
+    display: block;
+    width: 5em;
+    height: 5em
+}
+.petal2:before {
+    position: absolute;
+    left: -12em;
+    top: -2em;
+    margin: 2em 6em;
+    background: #4d008f;
+    border-radius: 0 100%;
+    box-shadow: 6em 6em #490091;
+    transform: rotate(-30deg);
+    transform-origin: 5.5em 5.5em;
+}
+
+.petal2:after {
+    position: absolute;
+    left: -12em;
+    top: -2em;
+    margin: 2em 6em;
+    background: #4d008f;
+    border-radius: 0 100%;
+    box-shadow: 6em 6em #3d0479;
+    transform: rotate(30deg);
+    transform-origin: 5.5em 5.5em
+}
+
+.petal3 {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    top: 689px;
+    left: 483px;
+    background: #442e56;
+    border-radius: 100% 0;
+    box-shadow: -6em 6em #442e56;
+}
+.petal3:before,
+.petal3:after {
+    content: "";
+    display: block;
+    width: 5em;
+    height: 5em
+}
+.petal3:before {
+    position: absolute;
+    left: -12em;
+    top: -2em;
+    margin: 2em 6em;
+    background: #442e56;
+    border-radius: 0 100%;
+    box-shadow: 6em 6em#442e56;
+    transform: rotate(-30deg);
+    transform-origin: 5.5em 5.5em;
+}
+
+.petal3:after {
+    position: absolute;
+    left: -12em;
+    top: -2em;
+    margin: 2em 6em;
+    background: #442e56;
+    border-radius: 0 100%;
+    box-shadow: 6em 6em #442e56;
+    transform: rotate(30deg);
+    transform-origin: 5.5em 5.5em
+}

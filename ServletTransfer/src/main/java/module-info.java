@@ -3,5 +3,5 @@ module ServletTransfer {
     requires transitive jakarta.jakartaee.api;
 
     exports com.golem.tech.containers;
-    exports com.golem.tech.signatures;
+    exports com.golem.tech.pages;
 }

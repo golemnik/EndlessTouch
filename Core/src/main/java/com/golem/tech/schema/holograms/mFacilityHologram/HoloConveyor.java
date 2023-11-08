@@ -6,7 +6,5 @@ import java.util.List;
 
 public interface HoloConveyor {
     HoloContainer execute (HoloContainer request);
-    List<HoloMechanism> conveyor ();
-    void addMechanism (HoloMechanism mechanism);
-
+    List<HoloMechanism> mechanisms ();
 }
