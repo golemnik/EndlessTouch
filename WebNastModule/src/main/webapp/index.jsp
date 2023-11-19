@@ -98,9 +98,8 @@
             <td>Введите Y-координату (-3...3):</td>
             <td>
                 <%--@declare id="y"--%><label for="y">y =</label>
-                <input type="text" name="y" value="1" pattern="^(-?[1-3])|(0)|(-?0\.[0-9]+)$">
-
-
+                <input type="text" name="y" value="1"
+                       pattern="^(-?[1-3])|(0)|(-?[0-3]\.[1-9]+)|(-?[0-3]\.[0]+\d*[1-9]+)$">
             </td>
         </tr>
 
