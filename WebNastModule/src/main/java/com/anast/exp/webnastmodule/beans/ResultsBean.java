@@ -18,4 +18,20 @@ public class ResultsBean implements Serializable {
     public void clearResults(){
         results.clear();
     }
+
+    public static String jsArray (ResultsBean resultBean) {
+        List<Result> results = resultBean.getResults();
+        StringBuilder dr = new StringBuilder("[");
+        if (!results.isEmpty()) {
+            for (Result result : results) {
+                dr.append("{")
+                        .append("x:").append(result.getX())
+                        .append(",y:").append(result.getY())
+                        .append(",r:").append(result.getR())
+                        .append("},");
+            }
+        }
+        dr.append("]");
+        return dr.toString();
+    }
 }

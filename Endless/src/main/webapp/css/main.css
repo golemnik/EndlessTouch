@@ -1,0 +1,44 @@
+html, body {
+    background-color: black;
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    min-height: 50px;
+    min-width: 250px;
+    text-align: center;
+    position: relative;
+    align-content: center;
+
+    background: transparent;
+    color: #b7b7b7;
+    border-radius: 5px;
+    margin: 50px;
+    border: 5px;
+    padding: 5px;
+
+    box-shadow:
+            0 0 5px #a8a8a8,
+            0 0 25px #818181,
+            0 0 50px #525252,
+            0 0 100px #2f2f2f;
+}
+
+button:hover {
+    transition: .15s;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow:
+            0 0 5px #f9f6fc,
+            0 0 25px #cca2f5,
+            0 0 50px #b870ef,
+            0 0 100px #992af1;
+}

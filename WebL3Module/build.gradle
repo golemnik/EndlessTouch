@@ -3,7 +3,7 @@ plugins {
   id 'war'
 }
 
-group 'com.golem.tech'
+group 'com.golem.lab'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -14,15 +14,6 @@ ext {
   junitVersion = '5.9.2'
 }
 
-//compileJava {
-//  doFirst {
-//    options.compilerArgs += [
-//            '--module-path', classpath.asPath
-//    ]
-//    classpath = files()
-//  }
-//}
-
 tasks.withType(JavaCompile) {
   options.encoding = 'UTF-8'
 }
@@ -31,15 +22,11 @@ dependencies {
   compileOnly('jakarta.platform:jakarta.jakartaee-api:9.1.0')
   compileOnly('jakarta.mvc:jakarta.mvc-api:2.0.0')
 
+  compileOnly 'org.icefaces:icefaces:4.2.0'
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
 test {
-  useJUnitPlatform()
-}
-
-war {
-
-}
+useJUnitPlatform()}

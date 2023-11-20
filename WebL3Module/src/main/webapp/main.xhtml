@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+>
+
+<h:head>
+    <title>Основная страница</title>
+    <h:outputScript library="js" name="gh.js" target="head" />
+
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:form>
+
+
+            <h:panelGrid columns="1">
+
+                <h:outputText value="Выберите значение для x:"/>
+                <h:commandLink value="-2" action="#{coordinatesBean.setX(-2)}"/>
+                <h:commandLink value="-1.5" action="#{coordinatesBean.setX(-1.5)}"/>
+                <h:commandLink value="-1" action="#{coordinatesBean.setX(-1)}"/>
+                <h:commandLink value="-0.5" action="#{coordinatesBean.setX(-0.5)}"/>
+                <h:commandLink value="0" action="#{coordinatesBean.setX(0)}"/>
+                <h:commandLink value="0.5" action="#{coordinatesBean.setX(0.5)}"/>
+                <h:commandLink value="1" action="#{coordinatesBean.setX(1)}"/>
+                <h:commandLink value="1.5" action="#{coordinatesBean.setX(1.5)}"/>
+            </h:panelGrid>
+
+            <h:outputText value="Введите значения для Y"/>
+            <h:inputText value="#{coordinatesBean.y}">
+
+            </h:inputText>
+
+            <h:outputLabel for="slider" value="Выберите значение R"/>
+            <ace:sliderEntry id="slider" value="#{coordinatesBean.getR()}" min="1" max="4" stepPercent="0.5"/>
+        </h:form>
+    </h:form>
+
+
+    <canvas id="canvas" width="600" height="600">
+        <h:outputScript>
+            const canvas = document.getElementById("canvas");
+            let r = (canvas.width + canvas.height) / 25;
+            draw([], r);
+        </h:outputScript>
+    </canvas>
+</h:body>
+</html>

@@ -14,7 +14,9 @@ ext {
 }
 
 dependencies {
+    deploy project(path: ':Endless', configuration:'archives')
     deploy project(path: ':WebModule', configuration:'archives')
+    deploy project(path: ':WebL3Module', configuration:'archives')
 //    deploy project(path: ':WebNastModule', configuration:'archives')
 //    deploy project(path: ':WebMathModule', configuration:'archives')
 }

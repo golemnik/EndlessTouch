@@ -54,7 +54,12 @@
   <form action="Control" method="get">
     <div class="sub">
       <input name="reset" type="text" value="true" hidden>
-      <button type="submit">reset</button>
+      <button type="submit"> reset </button>
+    </div>
+  </form>
+  <form action="http://localhost:8080/Endless-1.0-SNAPSHOT/">
+    <div class="sub">
+      <button  type="submit"> Endless </button>
     </div>
   </form>
 </div>
@@ -65,7 +70,11 @@
       const canvas = document.getElementById("canvas");
       let r = (canvas.width+canvas.height)/25;
       // canv();
-      const arr = <% if(o instanceof ResultTable) out.print(ResultTable.jsGraph(((ResultTable)o).getResults())); else out.print("[]"); %>;
+      const arr = <%
+      if(o instanceof ResultTable)
+        out.print(ResultTable.jsGraph(((ResultTable)o).getResults()));
+      else
+        out.print("[]"); %>;
       draw(arr, r);
     </script>
   </canvas>

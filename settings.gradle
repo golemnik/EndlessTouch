@@ -2,3 +2,5 @@ rootProject.name = "EndlessTouch"
 include 'WebModule'
 include 'WebNastModule'
 include 'WebMathModule'
+include 'Endless'
+include 'WebL3Module'
