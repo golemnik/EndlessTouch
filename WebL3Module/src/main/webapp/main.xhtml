@@ -1,55 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-      xmlns:ace="http://www.icefaces.org/icefaces/components"
->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-    <title>Основная страница</title>
-    <h:outputScript library="js" name="gh.js" target="head" />
-
+    <title>Lab 3</title>
 </h:head>
-
 <h:body>
     <h:form>
-        <h:form>
-
-
-            <h:panelGrid columns="1">
-
-                <h:outputText value="Выберите значение для x:"/>
-                <h:commandLink value="-2" action="#{coordinatesBean.setX(-2)}"/>
-                <h:commandLink value="-1.5" action="#{coordinatesBean.setX(-1.5)}"/>
-                <h:commandLink value="-1" action="#{coordinatesBean.setX(-1)}"/>
-                <h:commandLink value="-0.5" action="#{coordinatesBean.setX(-0.5)}"/>
-                <h:commandLink value="0" action="#{coordinatesBean.setX(0)}"/>
-                <h:commandLink value="0.5" action="#{coordinatesBean.setX(0.5)}"/>
-                <h:commandLink value="1" action="#{coordinatesBean.setX(1)}"/>
-                <h:commandLink value="1.5" action="#{coordinatesBean.setX(1.5)}"/>
-            </h:panelGrid>
-
-            <h:outputText value="Введите значения для Y"/>
-            <h:inputText value="#{coordinatesBean.y}">
-
-            </h:inputText>
-
-            <h:outputLabel for="slider" value="Выберите значение R"/>
-            <ace:sliderEntry id="slider" value="#{coordinatesBean.getR()}" min="1" max="4" stepPercent="0.5"/>
-        </h:form>
+        <div class="x">
+            <h:outputLabel for="x" value="x = "/>
+            <h:inputText id="x" value="#{resultBean.newDot.x}"/>
+        </div>
+        <div class="y">
+            <h:outputLabel for="y" value="y = "/>
+            <h:inputText id="y" value="#{resultBean.newDot.y}"/>
+        </div>
+        <div class="r">
+            <h:outputLabel for="r" value="r = "/>
+            <h:inputText id="r" value="#{resultBean.newDot.r}"/>
+        </div>
+        <div class="but">
+            <h:commandButton value="Submit" action="#{resultBean.addDot()}"/>
+        </div>
+    </h:form>
+    <h:dataTable value="#{resultBean.dots}" var="dot">
+        <h:column>
+            <h:outputText value="#{dot.x}"/>
+        </h:column>
+        <h:column>
+            <h:outputText value="#{dot.y}"/>
+        </h:column>
+        <h:column>
+            <h:outputText value="#{dot.r}"/>
+        </h:column>
+        <h:column>
+            <h:outputText value="#{dot.hit}"/>
+        </h:column>
+    </h:dataTable>
+    <h:form>
+        <h:commandButton value="Endless" action="http://localhost:8080/Endless-1.0-SNAPSHOT/"/>
     </h:form>
 
-
-    <canvas id="canvas" width="600" height="600">
-        <h:outputScript>
-            const canvas = document.getElementById("canvas");
-            let r = (canvas.width + canvas.height) / 25;
-            draw([], r);
-        </h:outputScript>
-    </canvas>
 </h:body>
+
 </html>
