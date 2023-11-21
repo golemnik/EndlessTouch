@@ -21,7 +21,7 @@
     </button>
   </form>
 
-  <form action="http://localhost:8080/WebL3Module-1.0-SNAPSHOT/test.xhtml">
+  <form action="http://localhost:8080/WebL3Module-1.0-SNAPSHOT/main.xhtml">
     <button class="lab" type="submit">
       Lab 3
     </button>
