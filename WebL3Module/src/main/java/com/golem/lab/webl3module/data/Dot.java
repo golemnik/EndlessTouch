@@ -40,5 +40,7 @@ public class Dot {
     public boolean getHit () {
         return hit;
     }
+
+
 }
 

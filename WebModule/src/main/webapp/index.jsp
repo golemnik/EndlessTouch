@@ -1,6 +1,7 @@
 <%@ page import="com.golem.tech.stuff.ResultTable" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%Object o = request.getAttribute("table"); %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%Object o = application.getAttribute("table"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,7 +92,23 @@
         <td>Time</td>
         <td>Scripted</td>
       </tr>
-      <% if(o instanceof ResultTable) out.print( ResultTable.htmlTable(((ResultTable)o).getResults())); %>
+      <c:forEach var="dot" items="${pageContext.servletContext.getAttribute('tableR')}">
+        <tr class="hover">
+          <td><c:out value="${dot.x}" /></td>
+          <td><c:out value="${dot.y}" /></td>
+          <td><c:out value="${dot.r}" /></td>
+          <td><c:out value="${dot.hit}" /></td>
+          <td><c:out value="" /></td>
+          <td><c:out value="" /></td>
+        </tr>
+
+<%--        <c:out value="<td>${dot.y}</td>" />--%>
+<%--        <c:out value="<td>${dot.r}</td>" />--%>
+<%--        <c:out value="<td>${dot.hit}</td>" />--%>
+<%--        <c:out value="<td></td>" />--%>
+<%--        <c:out value="<td></td>" />--%>
+<%--        <c:out value="</tr>"/>--%>
+      </c:forEach>
     </table>
   </form>
   <script>

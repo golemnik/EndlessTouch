@@ -22,16 +22,23 @@ public class AreaCheckServlet extends HttpServlet {
             double y = Double.parseDouble(request.getParameter("y"));
             double r = Double.parseDouble(request.getParameter("r"));
             boolean hit = checkArea(x, y, r);
-            Results results = new Results(x, y, r, hit);
+            Results results = new Results();
+            results.setX(x);
+            results.setY(y);
+            results.setR(r);
+            results.setHit(hit);
             table = loadTable();
             table.addResults(results);
         }
         else {
             table = new ResultTable();
             getServletContext().setAttribute("table", table);
+            getServletContext().setAttribute("tableR", table.getResults());
         }
-        request.setAttribute("table", table);
-        request.getRequestDispatcher("/").forward(request, response);
+        getServletContext().setAttribute("table", table);
+        getServletContext().setAttribute("tableR", table.getResults());
+//        request.setAttribute("table", table);
+        getServletContext().getRequestDispatcher("/").forward(request, response);
     }
 
     boolean checkArea (double x, double y, double r) {

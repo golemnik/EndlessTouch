@@ -1,10 +1,18 @@
 package com.golem.tech.stuff;
 
+import jakarta.inject.Named;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Named
 public class ResultTable {
-    private final List<Results> resultsList = new ArrayList<>();
+    private List<Results> resultsList = new ArrayList<>();
+
+    public void setResultsList(List<Results> resultsList) {
+        this.resultsList = resultsList;
+    }
+
     public void addResults (Results results) {
         resultsList.add(results);
     }
@@ -17,9 +25,9 @@ public class ResultTable {
         if (!results.isEmpty()) {
             for (Results result : results) {
                 dr.append("{")
-                        .append("x:").append(result.x())
-                        .append(",y:").append(result.y())
-                        .append(",r:").append(result.r())
+                        .append("x:").append(result.getX())
+                        .append(",y:").append(result.getY())
+                        .append(",r:").append(result.getR())
                         .append("},");
             }
         }
@@ -32,10 +40,10 @@ public class ResultTable {
         if (!results.isEmpty()) {
             for (int i = 0; i < results.size(); i++) {
                 dr.append("<tr class=\"hover\">")
-                        .append("<td>").append(results.get(i).x()).append("</td>")
-                        .append("<td>").append(results.get(i).y()).append("</td>")
-                        .append("<td>").append(results.get(i).r()).append("</td>")
-                        .append("<td>").append(results.get(i).hit()).append("</td>")
+                        .append("<td>").append(results.get(i).getX()).append("</td>")
+                        .append("<td>").append(results.get(i).getY()).append("</td>")
+                        .append("<td>").append(results.get(i).getR()).append("</td>")
+                        .append("<td>").append(results.get(i).getHit()).append("</td>")
                         .append("<td>").append("</td>")
                         .append("<td>").append("</td>")
                         .append("</tr>\n");

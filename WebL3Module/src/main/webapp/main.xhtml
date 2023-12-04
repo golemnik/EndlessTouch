@@ -1,50 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>Lab 3</title>
+    <h:outputStylesheet name="main.css"/>
+    <h:outputScript name="draw.js"/>
+    <h:outputScript name="main.js"/>
 </h:head>
 <h:body>
-    <h:form>
-        <div class="x">
-            <h:outputLabel for="x" value="x = "/>
-            <h:inputText id="x" value="#{resultBean.newDot.x}"/>
-        </div>
-        <div class="y">
-            <h:outputLabel for="y" value="y = "/>
-            <h:inputText id="y" value="#{resultBean.newDot.y}"/>
-        </div>
-        <div class="r">
-            <h:outputLabel for="r" value="r = "/>
-            <h:inputText id="r" value="#{resultBean.newDot.r}"/>
-        </div>
-        <div class="but">
-            <h:commandButton value="Submit" action="#{resultBean.addDot()}"/>
-        </div>
-    </h:form>
-    <h:dataTable value="#{resultBean.dots}" var="dot">
-        <h:column>
-            <h:outputText value="#{dot.x}"/>
-        </h:column>
-        <h:column>
-            <h:outputText value="#{dot.y}"/>
-        </h:column>
-        <h:column>
-            <h:outputText value="#{dot.r}"/>
-        </h:column>
-        <h:column>
-            <h:outputText value="#{dot.hit}"/>
-        </h:column>
-    </h:dataTable>
-    <h:form>
-        <h:commandButton value="Endless" action="http://localhost:8080/Endless-1.0-SNAPSHOT/"/>
-    </h:form>
+    <div class="forma">
+        <h:form>
+            <p:spinner />
+            <div class="x">
+                <h:outputLabel for="x" value="x = "/>
+                <h:inputText id="x" value="#{resultBean.newDot.x}" required="true"/>
+            </div>
+            <div class="y">
+                <h:outputLabel for="y" value="y = "/>
+                <h:inputText id="y" value="#{resultBean.newDot.y}" required="true"/>
+            </div>
+            <div class="r">
+                <h:outputLabel for="r" value="r = "/>
+                <h:inputText id="r" value="#{resultBean.newDot.r}" required="true"/>
+            </div>
+            <div class="but">
+                <h:commandButton type="submit" value="Submit" action="#{resultBean.addDot()}"/>
+            </div>
+        </h:form>
+        <h:form >
+            <h:commandButton value="Clear" action="#{resultBean.clear()}"/>
+        </h:form>
+        <h:form >
+            <h:commandButton value="Endless" action="#{redirectBean.redirectEndless()}"/>
+        </h:form>
+    </div>
 
+
+    <div class="can">
+        <canvas id="canvas" width="600" height="600">
+            <h:outputScript>
+                const canvas = document.getElementById("canvas");
+                let r = (canvas.width+canvas.height)/25;
+                const arr = <h:outputText value="#{resultBean.jsArray}"/>;
+                draw(arr, r);
+            </h:outputScript>
+        </canvas>
+    </div>
+
+    <div class="res">
+        <h:dataTable value="#{resultBean.dots}" var="dot" rowClasses="hover">
+            <h:column >
+                <f:facet name="header">X</f:facet>
+                <h:outputText value="#{dot.x}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Y</f:facet>
+                <h:outputText value="#{dot.y}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">R</f:facet>
+                <h:outputText value="#{dot.r}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Hit</f:facet>
+                <h:outputText value="#{dot.hit}"/>
+            </h:column>
+        </h:dataTable>
+    </div>
+
+
+    <h:outputScript>
+        dott (arr);
+    </h:outputScript>
 </h:body>
-
 </html>

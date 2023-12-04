@@ -6,7 +6,6 @@ const graph = "rgba(255,255,255,0.5)";
 const d_graph = "rgba(80,80,80,0.5)";
 function draw(arr, r) {
     const canvas = document.getElementById("canvas");
-    // const r = (canvas.width+canvas.height)/25;
     const scale = ~~(Math.sqrt((canvas.width**2 + canvas.height**2)/2)/r)-1;
     const center = new Point(canvas.width/2, canvas.height/2);
 
