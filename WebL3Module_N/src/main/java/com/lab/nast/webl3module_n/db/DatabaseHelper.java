@@ -61,14 +61,18 @@ public class DatabaseHelper {
             PreparedStatement ps = connection.prepareStatement(SQLRequests.selectAllResults);
             ps.setString(1, uuid);
             ResultSet res = ps.executeQuery();
+            System.out.println("abrakadabra");
             while (res.next()) {
                 PreviousResult result = new PreviousResult();
-                result.setX(res.getDouble("x"));
-                result.setY(res.getDouble("y"));
-                result.setR(res.getDouble("r"));
+                result.setX(res.getDouble(1));
+                result.setY(res.getDouble(2));
+                result.setR(res.getDouble(3));
+                result.setResult(res.getBoolean(4));
                 list.add(result);
             }
-        } catch (SQLException ignored) {}
+        } catch (SQLException ignored) {
+//            ignored.printStackTrace();
+        }
         return list;
     }
 

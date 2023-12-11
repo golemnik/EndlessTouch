@@ -32,7 +32,7 @@ public class CoordinatesBean implements Serializable {
 //    private DatabaseHelper databaseHelper;
 
     private List<PreviousResult> previousResults;
-    List<PreviousResult> result = DatabaseHelper.get().getAllResults(getCurrentUuid());
+//    List<PreviousResult> result = DatabaseHelper.get().getAllResults(getCurrentUuid());
 
     //List<PreviousResult> results = new ArrayList<>();
     @PostConstruct
@@ -45,6 +45,7 @@ public class CoordinatesBean implements Serializable {
         result.setX(x);
         result.setY(y);
         result.setR(r);
+        result.setResult(false);
 
         if (previousResults == null) {
             previousResults = new ArrayList<>();
