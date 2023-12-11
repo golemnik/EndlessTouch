@@ -3,6 +3,7 @@ package com.golem.math.webmathmodule.calculations;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -77,6 +78,80 @@ public class Calculations {
         }
 
         return freq;
+    }
+
+    public List<Double> frequenciesSeriesValues () {
+        List<Double> values = new ArrayList<>();
+        for (int i = 0; i < series.size(); i++) {
+            if (!(i < series.size()-1 && series.get(i).equals(series.get(i+1)))) {
+                values.add(series.get(i));
+            }
+        }
+        return values;
+    }
+    public List<Double> frequenciesSeriesAmounts () {
+        List<Double> amounts = new ArrayList<>();
+        double curFreq = 1;
+        for (int i = 0; i < series.size(); i++) {
+            if (i < series.size()-1 && series.get(i).equals(series.get(i+1))) {
+                curFreq++;
+            }
+            else {
+                amounts.add(curFreq);
+                curFreq = 1;
+            }
+        }
+        return amounts;
+    }
+
+    public List<Double> frequenciesSeriesEmperic () {
+        List<Double> empericSeries = new ArrayList<>();
+        List<Double> amounts = frequenciesSeriesAmounts();
+        double sum = 0;
+        for (Double amount : amounts) {
+            sum += amount / series.size();
+            empericSeries.add(sum);
+        }
+        return empericSeries;
+    }
+    public String frequenciesSeriesEmpericStr () {
+        DecimalFormat df = new DecimalFormat("#0.00");
+        List<Double> fse = frequenciesSeriesEmperic();
+        List<Double> values = frequenciesSeriesValues();
+        String empericSeries = "<br>" +
+                df.format(0) +
+                ", при " +
+                values.get(0) + " <= х, "  +
+                "<br>";
+
+        for (int i = 1; i < frequenciesSeriesEmperic().size(); i++) {
+            empericSeries += df.format(fse.get(i-1)) +
+                    ", при " +
+                    values.get(i-1) + " < х <= " + values.get(i) +
+                    ",<br>";
+        }
+        empericSeries += df.format(fse.get(fse.size()-1)) +
+                ", при " +
+                values.get(frequenciesSeriesEmperic().size()-1) + " < х."  +
+                "<br>";
+        return empericSeries;
+    }
+
+    public String frequenciesSeries (boolean vORa) {
+        DecimalFormat df = new DecimalFormat("#0.00");
+        List<Double> values = frequenciesSeriesValues();
+        List<Double> amounts = frequenciesSeriesAmounts();
+        String vS = "|";
+        String aS = "|";
+        for (Double v : values) {
+            if (v > 0) vS += " ";
+            vS += df.format(v) + " | ";
+        }
+        for (Double a : amounts) {
+            if (a > 0) aS += " ";
+            aS += df.format(a) + " | ";
+        }
+        return vORa ? vS : aS;
     }
 
     public Double firstStep () {

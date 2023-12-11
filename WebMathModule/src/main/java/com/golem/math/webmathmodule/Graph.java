@@ -21,6 +21,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import java.awt.*;
 import java.io.*;
+import java.util.List;
 
 @WebServlet(name = "graph", value = "/graph")
 public class Graph extends HttpServlet {
@@ -51,15 +52,17 @@ public class Graph extends HttpServlet {
     public JFreeChart empiricGraphic () {
         JFreeChart chart;
         XYSeries xyseries = new XYSeries("frequencies");
-        int size = calc.variationSeries().size();
-        Double t2=0D;
+        List<Double> values = calc.frequenciesSeriesEmperic();
+        int size = values.size();
+        Double t=0D;
+        xyseries.add(0, 0);
         for (int i = 0; i < size; i++) {
             if (i < size-1 && calc.variationSeries().get(i).equals(calc.variationSeries().get(i+1))) {
                 continue;
             }
-            xyseries.add(calc.variationSeries().get(i), t2);
-            t2 += calc.intervalStep();
-            xyseries.add(calc.variationSeries().get(i), t2);
+            xyseries.add(t, values.get(i));
+            t += calc.intervalStep();
+            xyseries.add(t, values.get(i));
         }
         XYSeriesCollection xydataset = new XYSeriesCollection(xyseries);
         chart = ChartFactory.createXYLineChart(

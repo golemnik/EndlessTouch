@@ -14,6 +14,14 @@
   <p>Частоты: <%out.print(calc.frequencies()); %> </p>
   <p>Минимум: <%out.print(calc.extremeMin()); %> </p>
   <p>Максимум: <%out.print(calc.extremeMax()); %> </p>
+  <p> Статистический ряд: <br>
+    z <%out.print(calc.frequenciesSeries(true)); %> <br>
+    n <%out.print(calc.frequenciesSeries(false)); %> <br>
+  </p>
+  <p>
+    F(x) = <%out.print(calc.frequenciesSeriesEmpericStr()); %>
+  </p>
+
   <p>Математическое ожидание: <%out.print(calc.mathExpectation()); %> </p>
   <p>Квадратичное отклонение: <%out.print(calc.standardDeviation()); %> </p>
   <img src="graph?type=1" alt="нет графика">

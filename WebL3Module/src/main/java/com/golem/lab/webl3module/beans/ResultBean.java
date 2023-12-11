@@ -1,6 +1,7 @@
 package com.golem.lab.webl3module.beans;
 
 import com.golem.lab.webl3module.data.Dot;
+import com.golem.lab.webl3module.hiber.DotManager;
 import jakarta.annotation.ManagedBean;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
@@ -12,6 +13,7 @@ import java.util.List;
 @ApplicationScoped
 @Named
 public class ResultBean {
+    private DotManager manager = new DotManager();
     private Dot newDot = new Dot();
     private List<Dot> dots = new ArrayList<>();
 
@@ -20,7 +22,8 @@ public class ResultBean {
     }
 
     public List<Dot> getDots() {
-        return dots;
+//        return dots;
+        return manager.getDots();
     }
 
     public void setNewDot(Dot newDot) {
@@ -32,6 +35,7 @@ public class ResultBean {
     }
 
     public void addDot () {
+        manager.addDot(newDot);
         dots.add(newDot);
         newDot = new Dot();
     }

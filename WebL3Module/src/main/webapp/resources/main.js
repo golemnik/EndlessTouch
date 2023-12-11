@@ -31,13 +31,17 @@ function check () {
 //     }));
 // }
 
+function RR (r) {
+    document.querySelector("div.r input").value = r;
+}
+
 function canv () {
     const can = document.querySelector("canvas");
     const r = (can.width+can.height)/25;
     can.addEventListener('click', function (event) {
-        let xx = Math.round((event.pageX - can.offsetLeft - can.width/2)/r);
+        let xx = (event.pageX - can.offsetLeft - can.width/2)/r;
         let yy = -(event.pageY - can.offsetTop - can.height/2)/r;
-        if(xx > 4 || xx < -4) {
+        if(xx > 5 || xx < -5) {
             alert("x {" + xx + "} is out of range");
         }
         else {
@@ -49,6 +53,7 @@ function canv () {
                 document.querySelector("div.y input").value = yy;
                 document.querySelector("div.r input").value = 1;
                 document.querySelector("div.but input[type=submit]").click();
+                // document.querySelector("div.r input").checked = true;
                 // document.querySelector("div.but input[type=submit]").click();
                 // document.querySelector("div.forma form").submit();
             }

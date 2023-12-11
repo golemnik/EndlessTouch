@@ -19,7 +19,7 @@ dependencies {
     deploy project(path: ':WebL3Module', configuration:'archives')
 //    deploy('org.primefaces:primefaces:13.0.3')
 //    deploy project(path: ':WebNastModule', configuration:'archives')
-//    deploy project(path: ':WebMathModule', configuration:'archives')
+    deploy project(path: ':WebMathModule', configuration:'archives')
 }
 
 tasks.withType(JavaCompile) {
