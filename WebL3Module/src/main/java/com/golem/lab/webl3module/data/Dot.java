@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 
 @Named
 @Entity
-@Table(name = "dot")
+@Table(name = "dot", schema = "public")
 public class Dot {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    public Dot () {}
     @Column(name = "x")
     private double x;
     @Column(name = "y")
@@ -20,6 +20,7 @@ public class Dot {
     @Column(name = "hit")
     private boolean hit;
 
+    public Dot () {}
     public void setX(double x) {
         this.x = x;
     }
@@ -51,7 +52,6 @@ public class Dot {
     public boolean getHit () {
         return hit;
     }
-
 
     public void setId(Long id) {
         this.id = id;

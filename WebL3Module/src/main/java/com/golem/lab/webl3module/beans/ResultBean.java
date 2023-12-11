@@ -36,7 +36,7 @@ public class ResultBean {
 
     public void addDot () {
         manager.addDot(newDot);
-        dots.add(newDot);
+//        dots.add(newDot);
         newDot = new Dot();
     }
 
@@ -45,6 +45,7 @@ public class ResultBean {
     }
 
     public String getJsArray() {
+        List<Dot> dots = getDots();
         if (dots == null) {
             return "[]";
         }

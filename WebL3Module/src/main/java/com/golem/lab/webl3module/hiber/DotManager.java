@@ -5,8 +5,10 @@ import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
+import java.util.Queue;
 
 public class DotManager {
 //    private SessionFactory factory = HiberFactory.getManager();
@@ -14,8 +16,9 @@ public class DotManager {
     }
 
     public List<Dot> getDots () {
-        try {
-            return HiberFactory.getManager().createQuery("from Dot", Dot.class).getResultList();
+        try (Session session = HiberFactory.getSessionFactory().openSession()) {
+            Query<Dot> query = session.createQuery("from Dot", Dot.class);
+            return query.getResultList();
         }
         catch (Exception e) {
             return null;
@@ -23,13 +26,10 @@ public class DotManager {
     }
 
     public void addDot (Dot dot) {
-        try {
-            EntityManager manager = HiberFactory.getManager();
-            manager.getTransaction().begin();
-            manager.persist(dot);
-            manager.getTransaction().commit();
-        }
-        catch (Exception e) {
+        try (Session session = HiberFactory.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.persist(dot);
+            transaction.commit();
         }
     }
 }
