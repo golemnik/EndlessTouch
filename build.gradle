@@ -14,12 +14,16 @@ ext {
 }
 
 dependencies {
-    deploy project(path: ':Endless', configuration:'archives')
-    deploy project(path: ':WebModule', configuration:'archives')
-    deploy project(path: ':WebL3Module', configuration:'archives')
+//    deploy project(path: ':Endless', configuration:'archives')
+//    deploy project(path: ':WebModule', configuration:'archives')
+//    deploy project(path: ':WebL3Module', configuration:'archives')
+
+    deploy project(path: ':WebL3Module_N', configuration:'archives')
+
 //    deploy('org.primefaces:primefaces:13.0.3')
 //    deploy project(path: ':WebNastModule', configuration:'archives')
-    deploy project(path: ':WebMathModule', configuration:'archives')
+
+//    deploy project(path: ':WebMathModule', configuration:'archives')
 }
 
 tasks.withType(JavaCompile) {
