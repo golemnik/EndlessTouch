@@ -18,24 +18,32 @@
             </ui:repeat>
 
             <div class="x">
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x1}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x2}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x3}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x4}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x5}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x6}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x7}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x8}"/>
-                <h:selectBooleanCheckbox value="#{coordinatesBean.x9}"/>
+                <h:outputLabel for="x1" value="-4"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x1}" id="x1" onchange="uncheck(this)"/>
+                <h:outputLabel for="x2" value="-3"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x2}" id="x2" onchange="uncheck(this)"/>
+                <h:outputLabel for="x3" value="-2"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x3}" id="x3" onchange="uncheck(this)"/>
+                <h:outputLabel for="x4" value="-1"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x4}" id="x4" onchange="uncheck(this)"/>
+                <h:outputLabel for="x5" value="0"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x5}" id="x5" onchange="uncheck(this)"/>
+                <h:outputLabel for="x6" value="1"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x6}" id="x6" onchange="uncheck(this)"/>
+                <h:outputLabel for="x7" value="2"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x7}" id="x7" onchange="uncheck(this)"/>
+                <h:outputLabel for="x8" value="3"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x8}" id="x8" onchange="uncheck(this)"/>
+                <h:outputLabel for="x9" value="4"/>
+                <h:selectBooleanCheckbox value="#{coordinatesBean.x9}" id="x9" onchange="uncheck(this)"/>
             </div>
 
-            <!-- Для других элементов списка -->
-            <!--путь к валидаторуid -->
             <div class="y">
                 <h:outputText value="Введите значения для Y {-5...3}:"/>
-                <h:inputText id="yInput" value="#{coordinatesBean.y}" required="true"></h:inputText>
-                <!-- validator="#{yValidator.validate}" converterMessage="Y должно быть числом в диапазоне от -5 до 3, исключая -0" />-->
-                <h:message for="yInput" />
+                <h:inputText id="yInput" value="#{coordinatesBean.y}" required="true">
+                    <f:validator validatorId="yValidator"/>
+                </h:inputText>
+                <h:message for="yInput" style="color: red"/>
             </div>
 
             <div class="r">
@@ -55,7 +63,17 @@
 
             <h:commandButton value="Clear" action="#{coordinatesBean.clearResults}" />
         </h:form>
-        <h:dataTable value="#{coordinatesBean.previousResults}" var="result">
+
+        <canvas id="canvas" width="600" height="600">
+            <h:outputScript>
+                const canvas = document.getElementById("canvas");
+                let r = (canvas.width+canvas.height)/25;
+                const arr = <h:outputText value="#{coordinatesBean.jsArray}"/>;
+                draw(arr, r);
+            </h:outputScript>
+        </canvas>
+
+        <h:dataTable value="#{coordinatesBean.PreviousResults()}" var="result">
             <h:column>
                 <f:facet name="header">X Value</f:facet>
                 #{result.x}
@@ -69,17 +87,9 @@
                 #{result.r}
             </h:column>
         </h:dataTable>
-            <input type="hidden" id="x" name="x" value="#{coordinatesBean.x}" />
-            <input type="hidden" id="y" name="y" value="#{coordinatesBean.y}" />
-            <input type="hidden" id="r" name="r" value="#{coordinatesBean.r}" />
 
-        <canvas id="canvas" width="600" height="600">
-            <h:outputScript>
-                const canvas = document.getElementById("canvas");
-                let r = (canvas.width+canvas.height)/25;
-                const arr = <h:outputText value="#{coordinatesBean.jsArray}"/>;
-                draw(arr, r);
-            </h:outputScript>
-        </canvas>
+<!--            <input type="hidden" id="x" name="x" value="#{coordinatesBean.x}" />-->
+<!--            <input type="hidden" id="y" name="y" value="#{coordinatesBean.y}" />-->
+<!--            <input type="hidden" id="r" name="r" value="#{coordinatesBean.r}" />-->
     </h:body>
 </html>

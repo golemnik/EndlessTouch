@@ -16,15 +16,14 @@ public class DatabaseHelper {
 
     public boolean connect() {
         Properties properties = new Properties();
+        System.out.println(getClass().getClassLoader().getResource("db.properties"));
         try (InputStream is = getClass().getClassLoader().getResourceAsStream("db.properties");
              InputStreamReader ir = new InputStreamReader(is)) {
             properties.load(ir);
             Class.forName("org.postgresql.Driver");
-//            connection=DriverManager.getConnection ("jdbc:postgresql://localhost:5432/anastasiia", "anastasiia", "sav111275");
-            connection=DriverManager.getConnection ("jdbc:postgresql://localhost:5432/postgres", "postgres", "pgAdmin");
-            //connection = DriverManager.getConnection("jdbc:postgresql:anastasiia", properties);
+            connection = DriverManager.getConnection("jdbc:postgresql:postgres", properties);
+//            change database scheme jdbc:postgresql:<scheme name> <-- here!
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
         return true;
@@ -61,7 +60,6 @@ public class DatabaseHelper {
             PreparedStatement ps = connection.prepareStatement(SQLRequests.selectAllResults);
             ps.setString(1, uuid);
             ResultSet res = ps.executeQuery();
-            System.out.println("abrakadabra");
             while (res.next()) {
                 PreviousResult result = new PreviousResult();
                 result.setX(res.getDouble(1));
