@@ -1,7 +1,7 @@
 package com.golem.lab.webl3module.hiber;
 
 import com.golem.lab.webl3module.data.Dot;
-import jakarta.persistence.EntityManager;
+//import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class DotManager {
-//    private SessionFactory factory = HiberFactory.getManager();
     public DotManager () {
     }
 
@@ -29,6 +28,16 @@ public class DotManager {
         try (Session session = HiberFactory.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.persist(dot);
+            transaction.commit();
+        }
+    }
+
+    public void clearDots () {
+        try (Session session = HiberFactory.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            for(Dot dot : getDots()) {
+                session.remove(dot);
+            }
             transaction.commit();
         }
     }

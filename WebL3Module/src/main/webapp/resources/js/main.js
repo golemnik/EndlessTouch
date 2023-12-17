@@ -67,8 +67,10 @@ function dott (arr) {
             let x = row.cells[0].innerHTML;
             let y = row.cells[1].innerHTML;
             let r = row.cells[2].innerHTML;
+            let hit = row.cells[3].innerHTML;
+            // alert(hit);
         row.addEventListener("mouseover", function () {
-            darkDot(x, y, r, arr);
+            darkDot(x, y, r, hit, arr);
         });
         row.addEventListener("mouseout", function () {
             lightDot(arr);

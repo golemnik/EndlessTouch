@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-
+<!--      xmlns:f="http://xmlns.jcp.org/jsf/core"-->
+<!--        xmlns:h="http://java.sun.com/jsf/html"-->
+<!--        xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:h="jakarta.faces.html"-->
+<!--      xmlns:f="jakarta.faces.core"-->
+<!--      xmlns:ui="jakarta.faces.facelets"-->
+<html
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Lab 3</title>
-    <h:outputScript name="draw.js"/>
-    <h:outputScript name="main.js"/>
-    <h:outputStylesheet name="main.css" />
+    <h:outputScript name="js/draw.js"/>
+    <h:outputScript name="js/main.js"/>
+    <h:outputStylesheet name="css/main.css" />
 </h:head>
 <h:body>
     <div class="forma">
@@ -39,18 +45,19 @@
                 <h:commandButton value="2" onclick="RR(2)" />
                 <h:commandButton value="2.5" onclick="RR(2.5)" />
                 <h:commandButton value="3" onclick="RR(3)" />
-
             </div>
             <div class="but">
                 <h:commandButton type="submit" value="Submit" action="#{resultBean.addDot()}"/>
+
             </div>
+        </h:form>
+        <h:form>
+            <h:commandButton value="Enter" action="enter"/>
         </h:form>
         <h:form >
             <h:commandButton value="Clear" action="#{resultBean.clear()}"/>
         </h:form>
-        <h:form >
-            <h:commandButton value="Endless" action="#{redirectBean.redirectEndless()}"/>
-        </h:form>
+
     </div>
 
 

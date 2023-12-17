@@ -18,8 +18,5 @@ function validateY(input) {
 function uncheck(box) {
     let ix = document.querySelectorAll("div.x input")
     ix.forEach(x => x.checked = false);
-    // for (let i = 0; i < ix.length; i++) {
-    //     ix[i].checked = false;
-    // }
     box.checked = true;
 }

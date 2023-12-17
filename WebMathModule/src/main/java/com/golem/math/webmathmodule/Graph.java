@@ -179,4 +179,32 @@ public class Graph extends HttpServlet {
 
         return chart;
     }
+
+    public JFreeChart barSeqGraphic () {
+        JFreeChart chart;
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        int size = calc.variationSeries().size();
+        for (int i = 0; i < size; i++) {
+            if (i < size-1 && calc.variationSeries().get(i).equals(calc.variationSeries().get(i+1))) {
+                continue;
+            }
+            dataset.addValue(calc.frequencies().get(i)/calc.intervalStep(),
+                    calc.frequencies().get(i)/calc.intervalStep() + "",
+                    calc.variationSeries().get(i).toString() + "");
+        }
+
+        chart = ChartFactory.createBarChart(
+                "Гистограмма частот",
+                "x",
+                "p*/h",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                false,
+                false);
+
+
+        return chart;
+    }
 }

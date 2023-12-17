@@ -22,12 +22,20 @@ dependencies {
   compileOnly('jakarta.platform:jakarta.jakartaee-api:9.1.0')
   compileOnly('jakarta.mvc:jakarta.mvc-api:2.0.0')
 
+//  compileOnly('jakarta.platform:jakarta.jakartaee-api:10.0.0')
+//  implementation 'jakarta.platform:jakarta.jakartaee-web-api:10.0.0'
+//  implementation 'jakarta.faces:jakarta.faces-api:4.0.1'
+//  implementation 'org.glassfish:jakarta.faces:4.0.1'
+
 //  runtimeOnly("org.primefaces:primefaces-13.0.3")
 
 //  compileOnly ('org.primefaces:primefaces:13.0.3-jakarta')
 //  compileOnly 'org.icefaces:icefaces:4.2.0'
   implementation group: 'org.primefaces', name: 'primefaces', version: '13.0.3', classifier: 'jakarta'
   implementation 'org.postgresql:postgresql:42.7.1'
+
+//  implementation platform('org.hibernate.orm:hibernate-platform:6.3.1.Final')
+//  implementation 'org.hibernate.orm:hibernate-core'
   implementation 'org.hibernate:hibernate-core:6.4.0.Final'
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")

@@ -15,14 +15,8 @@ import java.util.List;
 public class ResultBean {
     private DotManager manager = new DotManager();
     private Dot newDot = new Dot();
-    private List<Dot> dots = new ArrayList<>();
-
-    public void setDots(List<Dot> dots) {
-        this.dots = dots;
-    }
 
     public List<Dot> getDots() {
-//        return dots;
         return manager.getDots();
     }
 
@@ -35,17 +29,26 @@ public class ResultBean {
     }
 
     public void addDot () {
+        newDot.setHit(checkHit(newDot.getX(), newDot.getY(), newDot.getR()));
         manager.addDot(newDot);
-//        dots.add(newDot);
         newDot = new Dot();
     }
 
+    private boolean checkHit (double x, double y, double r) {
+        return x >= 0 ? y >= 0
+                        ? -x + r > y
+                        : false
+                    : y >= 0
+                        ? x*x + y*y <= r*r
+                        : x <= r/2 && y <= r;
+    }
+
     public void clear () {
-        dots = new ArrayList<>();
+        manager.clearDots();
     }
 
     public String getJsArray() {
-        List<Dot> dots = getDots();
+        List<Dot> dots = manager.getDots();
         if (dots == null) {
             return "[]";
         }
@@ -55,6 +58,7 @@ public class ResultBean {
                     .append("x:").append(dot.getX())
                     .append(",y:").append(dot.getY())
                     .append(",r:").append(dot.getR())
+                    .append(",hit:").append(dot.getHit())
                     .append("},");
         }
         dr.append("]");

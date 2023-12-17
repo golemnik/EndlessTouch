@@ -11,13 +11,15 @@
   <br/>
   <p>Данные: <%out.print(calc.getSeries()); %> </p>
   <p>Вариационный ряд: <%out.print(calc.variationSeries()); %> </p>
-  <p>Частоты: <%out.print(calc.frequencies()); %> </p>
   <p>Минимум: <%out.print(calc.extremeMin()); %> </p>
   <p>Максимум: <%out.print(calc.extremeMax()); %> </p>
+  <p>Размах: <%out.print(calc.scope());%></p>
   <p> Статистический ряд: <br>
     z <%out.print(calc.frequenciesSeries(true)); %> <br>
     n <%out.print(calc.frequenciesSeries(false)); %> <br>
   </p>
+  <p>Частоты: <%out.print(calc.frequencies()); %> </p>
+
   <p>
     F(x) = <%out.print(calc.frequenciesSeriesEmpericStr()); %>
   </p>

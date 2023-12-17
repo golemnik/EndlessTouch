@@ -6,10 +6,21 @@ html, body {
     overflow: hidden;
 }
 
-input[type="text"], .spinner {
+input[type="text"], .ui-spinner {
     color: #ffffff;
     background: transparent;
     outline: none;
+    border: transparent;
+}
+
+*.ui-state-focus {
+    border: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.ui-spinner-text, input[type="text"] {
+    text-align: center !important;
 }
 
 button, input[type="button"], input[type="submit"], .ui-spinner-button {

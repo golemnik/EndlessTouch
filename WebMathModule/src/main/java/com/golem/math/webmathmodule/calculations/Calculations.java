@@ -158,7 +158,7 @@ public class Calculations {
         return extremeMin() - intervalStep()/2;
     }
     public Double intervalStep () {
-        return ( extremeMax() - extremeMin() ) / (1 + 3.322 * Math.log(series.size()) );
+        return scope() / (1 + 3.322 * Math.log(series.size()) );
     }
 
 }

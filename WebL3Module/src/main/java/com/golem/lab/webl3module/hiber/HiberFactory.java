@@ -24,7 +24,7 @@ public class HiberFactory {
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 
             } catch (Exception e) {
-                System.out.println("Something went wrong with configuration: " + e.getMessage());
+                e.printStackTrace();
             }
         }
         return sessionFactory;
